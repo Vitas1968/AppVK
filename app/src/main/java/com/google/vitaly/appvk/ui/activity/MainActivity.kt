@@ -1,7 +1,8 @@
-package com.google.vitaly.appvk
+package com.google.vitaly.appvk.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.vitaly.appvk.R
 
 class MainActivity : AppCompatActivity() {
 
