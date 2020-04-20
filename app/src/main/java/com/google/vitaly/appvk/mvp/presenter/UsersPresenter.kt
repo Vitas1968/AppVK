@@ -26,7 +26,9 @@ class UsersPresenter(val mainThreadScheduler: Scheduler, val accessToken: String
         override fun getCount() = friends.size
         override fun bindView(view: UserItemView) {
             val friend = friends[view.pos]
-            view.setLogin(friend.firstName)
+            view.setFirstName(friend.firstName)
+            view.setLastName(friend.lastName)
+            view.setCity(friend.city.title)
             view.loadAvatar(friend.photo_50)
         }
     }
