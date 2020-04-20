@@ -26,35 +26,29 @@ class UsersRVAdapter(val presenter: IUserListPresenter) : RecyclerView.Adapter<U
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.pos = position
-        holder.containerView.card_view.setOnClickListener { presenter.itemClickListener?.invoke(holder) }
+        holder.containerView.setOnClickListener { presenter.itemClickListener?.invoke(holder) }
         presenter.bindView(holder)
     }
 
 
     inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer,
         UserItemView {
-        val cardView=containerView.card_view
         override var pos = -1
         override fun setFirstName(firstName: String) {
-            cardView.first_name.text=firstName
+            containerView.first_name.text=firstName
         }
 
         override fun setLastName(lastName: String) {
-            cardView.last_name.text=lastName
+            containerView.last_name.text=lastName
         }
 
         override fun setCity(cityName: String) {
-            cardView.city_user.text=cityName
+            containerView.city_user.text=cityName
         }
-
-//        override fun setLogin(text: String) = with(containerView) {
-//            tv_login.text = text
-//        }
 
         override fun loadAvatar(url: String) = with(containerView) {
-            imageLoader.loadInto(url, card_view.im_view_avatar)
+            imageLoader.loadInto(url, im_view_avatar)
         }
-
     }
 
 }
