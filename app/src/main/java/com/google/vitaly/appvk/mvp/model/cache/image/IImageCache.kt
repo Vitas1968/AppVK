@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.model.cache.image
+package com.google.vitaly.appvk.mvp.model.cache.image
 
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe

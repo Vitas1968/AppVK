@@ -1,9 +1,9 @@
-package ru.geekbrains.poplib.mvp.presenter
+package com.google.vitaly.appvk.mvp.presenter
 
+import com.google.vitaly.appvk.mvp.view.MainView
+import com.google.vitaly.appvk.navigation.Screens
 import moxy.InjectViewState
 import moxy.MvpPresenter
-import ru.geekbrains.poplib.mvp.view.MainView
-import ru.geekbrains.poplib.navigation.Screens
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class MainPresenter() : MvpPresenter<MainView>() {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.init()
-        router.replaceScreen(Screens.RepositoriesScreen())
+        router.replaceScreen(Screens.AuthScreen())
     }
 
     fun backClicked() {

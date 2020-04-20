@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.di.repository.module
+package com.google.vitaly.appvk.di.repository
 
 import javax.inject.Scope
 

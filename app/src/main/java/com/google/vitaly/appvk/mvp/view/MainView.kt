@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.view
+package com.google.vitaly.appvk.mvp.view
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy

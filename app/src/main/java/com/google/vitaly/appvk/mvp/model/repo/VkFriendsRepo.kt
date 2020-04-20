@@ -1,15 +1,38 @@
-package ru.geekbrains.poplib.mvp.model.repo
+package com.google.vitaly.appvk.mvp.model.repo
 
+
+import com.google.vitaly.appvk.mvp.model.api.IDataSource
+import com.google.vitaly.appvk.mvp.model.cache.IVkUsersCache
+import com.google.vitaly.appvk.mvp.model.entity.User
+import com.google.vitaly.appvk.mvp.model.entity.room.db.Database
+import com.google.vitaly.appvk.mvp.network.NetworkStatus
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Single.create
 import io.reactivex.rxjava3.schedulers.Schedulers
-import ru.geekbrains.poplib.mvp.model.api.IDataSource
-import ru.geekbrains.poplib.mvp.model.cache.IGithubUsersCache
-import ru.geekbrains.poplib.mvp.model.network.NetworkStatus
+import timber.log.Timber
 
-class GithubUsersRepo(val api: IDataSource, val networkStatus: NetworkStatus, val cache: IGithubUsersCache) {
+/*
+create<List<User>> { response.response.items }.flatMap { users ->
+                    Timber.d("Размер списка друзей-> "+users.size.toString())
+                    return@flatMap cache.putUsers(users).toSingleDefault(users)
+                }
+ */
+class VkFriendsRepo(val api: IDataSource, val networkStatus: NetworkStatus, val cache: IVkUsersCache) {
 
-    fun getUsers() = networkStatus.isOnlineSingle().flatMap { isOnline ->
+    fun getFriends(userId: String, accessToken: String) =networkStatus.isOnlineSingle().flatMap { isOnline ->
         if (isOnline) {
-            api.getUsers()
+            api.getFriends(userId,accessToken).map { response ->
+                return@map response.response.items}.flatMap {users->
+                cache.putUsers(users).toSingleDefault(users)
+            }
+        }else{
+            cache.getUsers()
+        }
+}.subscribeOn(Schedulers.io())
+
+    /*networkStatus.isOnlineSingle().flatMap { isOnline ->
+        if (isOnline) {
+            api.getFriends()
                 .flatMap { users ->
                     return@flatMap cache.putUsers(users).toSingleDefault(users)
                 }
@@ -17,7 +40,9 @@ class GithubUsersRepo(val api: IDataSource, val networkStatus: NetworkStatus, va
             cache.getUsers()
         }
     }.subscribeOn(Schedulers.io())
+    */
 
+    /*
     fun getUser(username: String) = networkStatus.isOnlineSingle().flatMap { isOnline ->
         if (isOnline) {
             api.getUser(username)
@@ -28,4 +53,5 @@ class GithubUsersRepo(val api: IDataSource, val networkStatus: NetworkStatus, va
            cache.getUser(username)
         }
     }.subscribeOn(Schedulers.io())
+     */
 }

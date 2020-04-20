@@ -1,11 +1,14 @@
-package ru.geekbrains.poplib.di.user
+package com.google.vitaly.appvk.di.user
 
+import com.google.vitaly.appvk.di.repository.RepositorySubcomponent
+import com.google.vitaly.appvk.di.user.modules.UserModule
+import com.google.vitaly.appvk.mvp.presenter.AuthPresenter
+import com.google.vitaly.appvk.mvp.presenter.UsersPresenter
+import com.google.vitaly.appvk.ui.adapter.UsersRVAdapter
+import com.google.vitaly.appvk.ui.fragment.AuthFragment
+import com.google.vitaly.appvk.ui.fragment.UsersFragment
 import dagger.Subcomponent
-import ru.geekbrains.poplib.di.repository.RepositorySubcomponent
-import ru.geekbrains.poplib.di.user.module.UserModule
-import ru.geekbrains.poplib.mvp.presenter.UsersPresenter
-import ru.geekbrains.poplib.ui.adapter.UsersRVAdapter
-import ru.geekbrains.poplib.ui.fragment.UsersFragment
+
 
 
 @UserScope
@@ -15,9 +18,11 @@ import ru.geekbrains.poplib.ui.fragment.UsersFragment
     ]
 )
 interface UserSubcomponent {
-    fun repositorySubcomponent(): RepositorySubcomponent
+    //fun repositorySubcomponent(): RepositorySubcomponent
 
-    fun inject(usersFragment: UsersFragment)
-    fun inject(usersPresenter: UsersPresenter)
-    fun inject(adapter: UsersRVAdapter)
+    fun injectUsersFragment(usersFragment: UsersFragment)
+    fun injectUsersPresenter(usersPresenter: UsersPresenter)
+    fun injectUsersRVAdapter(adapter: UsersRVAdapter)
+
+    fun injectAuthPresenter(authPresenter: AuthPresenter)
 }

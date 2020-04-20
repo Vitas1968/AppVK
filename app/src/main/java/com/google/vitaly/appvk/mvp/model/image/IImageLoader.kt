@@ -1,6 +1,7 @@
-package ru.geekbrains.poplib.mvp.model.image
+package com.google.vitaly.appvk.mvp.model.image
 
-import ru.geekbrains.poplib.mvp.model.cache.image.IImageCache
+import com.google.vitaly.appvk.mvp.model.cache.image.IImageCache
+
 
 interface IImageLoader<T> {
     val cache: IImageCache

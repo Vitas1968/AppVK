@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.ui.image
+package com.google.vitaly.appvk.ui.image
 
 import android.graphics.Bitmap
 import android.widget.ImageView
@@ -7,14 +7,16 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.vitaly.appvk.mvp.model.cache.image.IImageCache
+import com.google.vitaly.appvk.mvp.model.image.IImageLoader
+import com.google.vitaly.appvk.mvp.network.NetworkStatus
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import ru.geekbrains.poplib.mvp.model.cache.image.IImageCache
-import ru.geekbrains.poplib.mvp.model.image.IImageLoader
-import ru.geekbrains.poplib.mvp.model.network.NetworkStatus
+
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
 
-class GlideImageLoader(override val cache: IImageCache, val networkStatus: NetworkStatus) : IImageLoader<ImageView> {
+class GlideImageLoader(override val cache: IImageCache, val networkStatus: NetworkStatus) :
+    IImageLoader<ImageView> {
     override fun loadInto(url: String, container: ImageView) {
         Timber.d("Loading image $url ")
         networkStatus.isOnlineSingle()

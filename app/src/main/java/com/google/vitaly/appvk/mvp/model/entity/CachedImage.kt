@@ -1,3 +1,5 @@
-package ru.geekbrains.poplib.mvp.model.entity
+package com.google.vitaly.appvk.mvp.model.entity
 
-data class CachedImage(val url: String, val localPath: String)
+data class CachedImage(
+    val url: String,
+    val localPath: String)

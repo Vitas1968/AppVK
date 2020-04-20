@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.model.entity.room
+package com.google.vitaly.appvk.mvp.model.entity.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

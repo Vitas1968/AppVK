@@ -1,16 +1,16 @@
-package ru.geekbrains.poplib.di.app.modules
+package com.google.vitaly.appvk.di.app.modules
 
 
 import android.widget.ImageView
+import com.google.vitaly.appvk.mvp.model.cache.image.IImageCache
+import com.google.vitaly.appvk.mvp.model.cache.image.room.RoomImageCache
+import com.google.vitaly.appvk.mvp.model.entity.room.db.Database
+import com.google.vitaly.appvk.mvp.model.image.IImageLoader
+import com.google.vitaly.appvk.mvp.network.NetworkStatus
+import com.google.vitaly.appvk.ui.App
+import com.google.vitaly.appvk.ui.image.GlideImageLoader
 import dagger.Module
 import dagger.Provides
-import ru.geekbrains.poplib.mvp.model.cache.image.IImageCache
-import ru.geekbrains.poplib.mvp.model.cache.image.room.RoomImageCache
-import ru.geekbrains.poplib.mvp.model.entity.room.db.Database
-import ru.geekbrains.poplib.mvp.model.image.IImageLoader
-import ru.geekbrains.poplib.mvp.model.network.NetworkStatus
-import ru.geekbrains.poplib.ui.App
-import ru.geekbrains.poplib.ui.image.GlideImageLoader
 import java.io.File
 import javax.inject.Named
 

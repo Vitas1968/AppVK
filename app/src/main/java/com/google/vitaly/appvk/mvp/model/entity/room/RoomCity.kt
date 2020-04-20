@@ -1,10 +1,13 @@
-package com.google.vitaly.appvk.mvp.model.entity.room.db
+package com.google.vitaly.appvk.mvp.model.entity.room
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 
 @Entity
-class RoomCity(
-     val id: Int,
-     val title: String
-) {
-}
+data class RoomCity(
+
+    @PrimaryKey
+    val id: Int,
+    val title: String
+)

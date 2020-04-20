@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.model.entity.room.dao
+package com.google.vitaly.appvk.mvp.model.entity.room.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,40 +6,48 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import ru.geekbrains.poplib.mvp.model.entity.room.RoomGithubUser
+import com.google.vitaly.appvk.mvp.model.entity.room.RoomCity
+import com.google.vitaly.appvk.mvp.model.entity.room.RoomVkUser
+
 
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: RoomGithubUser)
+    fun insert(user: RoomVkUser)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg user: RoomGithubUser)
+    fun insert(vararg user: RoomVkUser)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(users: List<RoomGithubUser>)
+    fun insert(users: List<RoomVkUser>)
 
     @Update
-    fun update(user: RoomGithubUser)
+    fun update(user: RoomVkUser)
 
     @Update
-    fun update(vararg user: RoomGithubUser)
+    fun update(vararg user: RoomVkUser)
 
     @Update
-    fun update(users: List<RoomGithubUser>)
+    fun update(users: List<RoomVkUser>)
 
     @Delete
-    fun delete(user: RoomGithubUser)
+    fun delete(user: RoomVkUser)
 
     @Delete
-    fun delete(vararg user: RoomGithubUser)
+    fun delete(vararg user: RoomVkUser)
 
     @Delete
-    fun delete(users: List<RoomGithubUser>)
+    fun delete(users: List<RoomVkUser>)
 
-    @Query("SELECT * FROM RoomGithubUser")
-    fun getAll(): List<RoomGithubUser>
+    @Query("SELECT * FROM RoomVkUser")
+    fun getAll(): List<RoomVkUser>
 
-    @Query("SELECT * FROM RoomGithubUser WHERE login = :login LIMIT 1")
-    fun findByLogin(login: String): RoomGithubUser?
+    @Query("SELECT * FROM RoomVkUser WHERE id = :id LIMIT 1")
+    fun findById(id: Int): RoomVkUser?
+
+    @Query("SELECT * FROM RoomCity WHERE id = :cityId LIMIT 1")
+    fun findCityById(cityId: Int): RoomCity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCity(user: RoomCity)
 }

@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.view.list
+package com.google.vitaly.appvk.mvp.view.list
 
 interface UserItemView {
     var pos: Int

@@ -1,4 +1,9 @@
 package com.google.vitaly.appvk.mvp.presenter
 
-class FriendDetailsPresenter {
+import com.google.vitaly.appvk.mvp.view.FriendDetailsView
+import moxy.InjectViewState
+import moxy.MvpPresenter
+
+@InjectViewState
+class FriendDetailsPresenter: MvpPresenter<FriendDetailsView>() {
 }

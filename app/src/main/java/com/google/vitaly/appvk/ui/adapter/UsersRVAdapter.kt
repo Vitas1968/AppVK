@@ -1,16 +1,16 @@
-package ru.geekbrains.poplib.ui.adapter
+package com.google.vitaly.appvk.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.vitaly.appvk.R
+import com.google.vitaly.appvk.mvp.model.image.IImageLoader
+import com.google.vitaly.appvk.mvp.presenter.list.IUserListPresenter
+import com.google.vitaly.appvk.mvp.view.list.UserItemView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_user.view.*
-import ru.geekbrains.poplib.R
-import ru.geekbrains.poplib.mvp.model.image.IImageLoader
-import ru.geekbrains.poplib.mvp.presenter.list.IUserListPresenter
-import ru.geekbrains.poplib.mvp.view.list.UserItemView
 import javax.inject.Inject
 
 class UsersRVAdapter(val presenter: IUserListPresenter) : RecyclerView.Adapter<UsersRVAdapter.ViewHolder>() {
@@ -29,7 +29,8 @@ class UsersRVAdapter(val presenter: IUserListPresenter) : RecyclerView.Adapter<U
     }
 
 
-    inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, UserItemView {
+    inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer,
+        UserItemView {
         override var pos = -1
 
         override fun setLogin(text: String) = with(containerView) {

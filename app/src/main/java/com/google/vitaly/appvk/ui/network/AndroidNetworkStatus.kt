@@ -1,11 +1,11 @@
-package ru.geekbrains.poplib.ui.network
+package com.google.vitaly.appvk.ui.network
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
+import com.google.vitaly.appvk.mvp.network.NetworkStatus
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import ru.geekbrains.poplib.mvp.model.network.NetworkStatus
 import java.util.concurrent.TimeUnit
 
 class AndroidNetworkStatus(val context: Context) : NetworkStatus {

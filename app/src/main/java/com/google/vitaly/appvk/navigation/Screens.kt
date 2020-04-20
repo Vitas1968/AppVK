@@ -1,19 +1,25 @@
-package ru.geekbrains.poplib.navigation
+package com.google.vitaly.appvk.navigation
 
-import ru.geekbrains.poplib.mvp.model.entity.GithubRepository
+import com.google.vitaly.appvk.mvp.model.entity.User
+import com.google.vitaly.appvk.ui.fragment.AuthFragment
+import com.google.vitaly.appvk.ui.fragment.FriendDetailsFragment
+import com.google.vitaly.appvk.ui.fragment.UsersFragment
 
-import ru.geekbrains.poplib.ui.fragment.RepositoriesFragment
-import ru.geekbrains.poplib.ui.fragment.RepositoryFragment
+
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 class Screens {
 
-    class RepositoriesScreen() : SupportAppScreen() {
-        override fun getFragment() = RepositoriesFragment.newInstance()
+    class AuthScreen() : SupportAppScreen() {
+        override fun getFragment() = AuthFragment.newInstance()
+    }
+    class UsersScreen(val accessToken: String,val userId: String) : SupportAppScreen() {
+        override fun getFragment() = UsersFragment.newInstance(accessToken,userId)
+    }
+    class FriendDetailsScreen(val friend: User) : SupportAppScreen() {
+        override fun getFragment() = FriendDetailsFragment.newInstance(friend)
     }
 
-    class RepositoryScreen(val repository: GithubRepository) : SupportAppScreen() {
-        override fun getFragment() = RepositoryFragment.newInstance(repository)
-    }
+
 
 }

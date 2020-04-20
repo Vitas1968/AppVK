@@ -1,4 +1,9 @@
 package com.google.vitaly.appvk.mvp.view
 
-interface FriendDetailsView {
+import moxy.MvpView
+import moxy.viewstate.strategy.AddToEndSingleStrategy
+import moxy.viewstate.strategy.StateStrategyType
+
+@StateStrategyType(AddToEndSingleStrategy::class)
+interface FriendDetailsView: MvpView{
 }

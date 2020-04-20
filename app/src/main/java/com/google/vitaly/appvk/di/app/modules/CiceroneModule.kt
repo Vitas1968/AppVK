@@ -1,4 +1,4 @@
-package com.google.vitaly.appvk.di.modules
+package com.google.vitaly.appvk.di.app.modules
 
 import dagger.Module
 import dagger.Provides

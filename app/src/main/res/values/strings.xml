@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AppVK</string>
+    <string name="app_id_vk">7400556</string>
+    <string name="app_id_vk_v1">7414513</string>
+    <string name="app_protected_key_vk">nmlP9zBZ5rYHRnMt3jse</string>
+    <string name="app_protected_key_vk_v1">wNy452N2Vt8xbh7yB80L</string>
+    <string name="app_service_access_key_vk">a621509ea621509ea621509e4fa651bcf2aa621a621509ef8ae5c60b2b9033477b536ac</string>
+    <string name="app_service_access_key_vk_v1">24e10f0524e10f0524e10f052a24902df4224e124e10f057a7985b9fd65e956fe2545c7</string>
+    <string name="app_current_access_token_vk">2014863600e671d4ab77827de13f072e582cae5fc12d58797c5c86fa56cba9cbca6cb253b575899f0e68e</string>
+    <string name="app_access_token_offline_vk">77a76625cf14eb1423883dd8f60865bcd54deba2754ec775ce4b3955a17d3555d7326d21e1201503efd38</string>
+    <string name="my_user_id_vk">587482032</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

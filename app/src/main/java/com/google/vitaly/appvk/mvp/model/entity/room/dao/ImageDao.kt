@@ -1,4 +1,4 @@
-package ru.geekbrains.poplib.mvp.model.entity.room.dao
+package com.google.vitaly.appvk.mvp.model.entity.room.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import ru.geekbrains.poplib.mvp.model.entity.room.RoomCachedImage
+import com.google.vitaly.appvk.mvp.model.entity.room.RoomCachedImage
+
 
 @Dao
 interface ImageDao {
