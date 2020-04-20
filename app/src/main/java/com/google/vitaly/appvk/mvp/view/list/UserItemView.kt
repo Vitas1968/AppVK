@@ -5,6 +5,5 @@ interface UserItemView {
     fun setFirstName(firstName: String)
     fun setLastName(lastName: String)
     fun setCity(cityName: String)
-
     fun loadAvatar(url: String)
 }
