@@ -39,24 +39,22 @@ class UsersPresenter(val mainThreadScheduler: Scheduler, val accessToken: String
 
         usersListPresenter.itemClickListener = { itemView ->
             val user = usersListPresenter.friends[itemView.pos]
-            router.navigateTo(Screens.FriendDetailsScreen(user))
+            router.navigateTo(Screens.FriendDetailsScreen(accessToken,user.id.toString(),user.photo_50,user.firstName))
         }
     }
     fun loadData() {
         friendsRepo.getFriends(id,accessToken)
             .observeOn(mainThreadScheduler)
             .subscribe({ users ->
-                Timber.d("Размер списка друзей-> "+users.size.toString())
                 usersListPresenter.friends.addAll(users)
-                val tmp="pmp"
                 viewState.updateList()
             }, {
                 Timber.e(it)
             })
     }
 
-    fun backClicked(): Boolean {
+    fun backClicked() {
         router.exit()
-        return true
+
     }
 }

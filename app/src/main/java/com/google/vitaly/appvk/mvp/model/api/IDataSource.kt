@@ -1,6 +1,7 @@
 package com.google.vitaly.appvk.mvp.model.api
 
 import com.google.vitaly.appvk.mvp.model.entity.Response
+import com.google.vitaly.appvk.mvp.model.entity.wall.WallResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -23,6 +24,9 @@ interface IDataSource {
 
     @GET("/method/friends.get?fields=nickname,bdate,city,photo_50&v=5.103")
     fun getFriends(@Query("user_id") userId: String, @Query("access_token") accessToken: String): Single<Response>
+
+    @GET("/method/wall.get?count=50&v=5.103")
+    fun getPostsWall(@Query("owner_id") userId: String, @Query("access_token") accessToken: String): Single<WallResponse>
 
     /*
     @GET("/users/{user}")

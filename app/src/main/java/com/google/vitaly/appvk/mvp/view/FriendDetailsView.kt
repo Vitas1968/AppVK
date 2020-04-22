@@ -6,4 +6,8 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface FriendDetailsView: MvpView{
+    fun init()
+    fun updateList()
+    fun loadAvatar()
+    fun setFirstName()
 }

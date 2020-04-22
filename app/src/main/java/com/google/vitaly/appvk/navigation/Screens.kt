@@ -16,8 +16,8 @@ class Screens {
     class UsersScreen(val accessToken: String,val userId: String) : SupportAppScreen() {
         override fun getFragment() = UsersFragment.newInstance(accessToken,userId)
     }
-    class FriendDetailsScreen(val friend: User) : SupportAppScreen() {
-        override fun getFragment() = FriendDetailsFragment.newInstance(friend)
+    class FriendDetailsScreen(val accessToken: String, val userId: String, val avatarUrl: String,val userName: String) : SupportAppScreen() {
+        override fun getFragment() = FriendDetailsFragment.newInstance(accessToken,userId,avatarUrl,userName)
     }
 
 

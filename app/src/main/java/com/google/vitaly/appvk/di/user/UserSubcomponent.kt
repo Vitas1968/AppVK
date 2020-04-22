@@ -2,6 +2,7 @@ package com.google.vitaly.appvk.di.user
 
 import com.google.vitaly.appvk.di.repository.RepositorySubcomponent
 import com.google.vitaly.appvk.di.user.modules.UserModule
+import com.google.vitaly.appvk.di.wallposts.WallPostSubComponent
 import com.google.vitaly.appvk.mvp.presenter.AuthPresenter
 import com.google.vitaly.appvk.mvp.presenter.UsersPresenter
 import com.google.vitaly.appvk.ui.adapter.UsersRVAdapter
@@ -18,7 +19,7 @@ import dagger.Subcomponent
     ]
 )
 interface UserSubcomponent {
-    //fun repositorySubcomponent(): RepositorySubcomponent
+    fun wallPostSubComponent(): WallPostSubComponent
 
     fun injectUsersFragment(usersFragment: UsersFragment)
     fun injectUsersPresenter(usersPresenter: UsersPresenter)

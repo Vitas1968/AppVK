@@ -70,5 +70,9 @@ class UsersFragment(): MvpAppCompatFragment(), UsersView, BackButtonListener {
         adapter?.notifyDataSetChanged()
     }
 
-    override fun backClicked()=presenter.backClicked()
+    override fun backClicked(): Boolean {
+        presenter.backClicked()
+        return false
+    }
+
 }
