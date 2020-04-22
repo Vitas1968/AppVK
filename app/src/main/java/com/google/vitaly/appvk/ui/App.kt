@@ -5,6 +5,7 @@ import com.google.vitaly.appvk.di.app.AppComponent
 import com.google.vitaly.appvk.di.app.DaggerAppComponent
 import com.google.vitaly.appvk.di.app.modules.AppModule
 import com.google.vitaly.appvk.di.user.UserSubcomponent
+import com.google.vitaly.appvk.di.wallposts.WallPostSubComponent
 import timber.log.Timber
 
 class App : Application() {
@@ -25,8 +26,8 @@ class App : Application() {
         }
 
 
-//    val repositoryComponent: RepositorySubcomponent
-//        get() = tUserComponent!!.repositorySubcomponent()
+    val wallPostComponent: WallPostSubComponent
+        get() = tUserComponent!!.wallPostSubComponent()
 
     override fun onCreate() {
         super.onCreate()
